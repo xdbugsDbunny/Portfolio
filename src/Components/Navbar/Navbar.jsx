@@ -1,9 +1,14 @@
-import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, styled } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react'
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Projects', 'Contact'];
+
+const StyledAppBar = styled(AppBar)(({theme})=>({
+    background:'black',
+    opacity:'0.9'
+}))
 
 const Navbar = () => {
 
@@ -16,7 +21,7 @@ const Navbar = () => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                Portfolio
             </Typography>
             <Divider />
             <List>
@@ -46,11 +51,11 @@ const Navbar = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography
-                        variant="h6"
+                        variant="h5"
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        MUI
+                        Portfolio
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
@@ -78,11 +83,9 @@ const Navbar = () => {
                     {drawer}
                 </Drawer>
             </nav>
-            <Box component="main" sx={{ p: 3 }}>
-                <Toolbar />
-            </Box>
         </Box>
     );
 }
 
 export default Navbar
+
